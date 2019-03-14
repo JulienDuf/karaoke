@@ -5,6 +5,8 @@ import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as cors from 'cors';
 import { Index } from './route';
+import { Call } from './route/call';
+import { Sms } from './route/sms';
 
 export class Application {
     public app: express.Application;
@@ -31,7 +33,11 @@ export class Application {
 
     public routes() {
         const index: Index = new Index();
+        const sms = new Sms();
+        const call = new Call();
         this.app.use("/", index.router);
+        this.app.use("/sms", sms.router);
+        this.app.use("/call", call.router);
 
         this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
             let err = new Error('Not Found');
