@@ -8,6 +8,7 @@
     "build": "gulp build"
   },
   "dependencies": {
+    "@google-cloud/speech": "^2.3.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "^1.4.3",
     "cors": "^2.8.5",

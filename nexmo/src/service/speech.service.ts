@@ -1,6 +1,6 @@
 import * as Nexmo from "nexmo";
 
-export class NexmoService {
+export class SpeechService {
     private nexmo: any;
 
     constructor() {
@@ -28,16 +28,5 @@ export class NexmoService {
         } catch (err) {
             console.log("Nexmo failed to send sms. Reason:\n" + err);
         }
-    }
-
-    public saveRecording(url: string, uuid: string) {
-        this.nexmo.files.save(url,
-            `${uuid}.mp3`, (err, res) => {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log(res);
-            }
-        });
     }
 }

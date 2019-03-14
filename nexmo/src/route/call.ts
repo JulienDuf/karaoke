@@ -5,7 +5,6 @@ import { NexmoService } from '../service/nexmo.service';
 
 export class Call {
     private redisService = new RedisService();
-    private songService = new SongService();
     private smsService = new NexmoService();
 
     public router = express.Router();
@@ -21,20 +20,26 @@ export class Call {
         const fromSplitIntoCharacters = from.split('').join(' ');
 
         const ncco = [{
-            action: "connect",
-            endpoint: [
-                {
-                    type: "websocket",
-                    uri: "wss://5c4baccd.ngrok.io",
-                    "content-type": "audio/l16;rate=16000",
-                    headers: {
-                        phone: fromSplitIntoCharacters
-                    }
-                }
-            ]
+            action: 'stream',
+            streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-1.mp3']
+        }, {
+            action: 'record',
+            eventUrl: ['https://24baa8bd.ngrok.io/call/record'],
+            endOnSilence: '2'
         }, {
             action: 'stream',
-            streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila.mp3']
+            streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-2.mp3']
+        }, {
+            action: 'record',
+            eventUrl: ['https://24baa8bd.ngrok.io/call/record'],
+            endOnSilence: '2'
+        }, {
+            action: 'stream',
+            streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-3.mp3']
+        }, {
+            action: 'record',
+            eventUrl: ['https://24baa8bd.ngrok.io/call/record'],
+            endOnSilence: '2'
         }];
 
         res.json(ncco);
@@ -42,6 +47,7 @@ export class Call {
 
     private async record(req: express.Request, res: express.Response) {
         console.log(req.body);
+        this.smsService.saveRecording(req.body.recording_url, req.body.recording_uuid);
         res.end();
     }
 
