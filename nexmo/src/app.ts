@@ -7,6 +7,8 @@ import * as cors from 'cors';
 import { Index } from './route';
 import { Call } from './route/call';
 import { Sms } from './route/sms';
+import { Song } from './route/song';
+import * as session from 'express-session';
 
 export class Application {
     public app: express.Application;
@@ -27,17 +29,29 @@ export class Application {
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: true }));
         this.app.use(cookieParser());
+        this.app.use(session({
+            name: "sing-me-a-song",
+            secret: "mysecretissecret",
+            resave: false,
+            saveUninitialized: true,
+            cookie: {
+                httpOnly: true,
+                path: "/"
+            }
+        }));
         this.app.use(express.static(path.join(__dirname, '../public')));
         this.app.use(cors());
     }
 
     public routes() {
-        const index: Index = new Index();
+        const index = new Index();
         const sms = new Sms();
         const call = new Call();
+        const song: Song = new Song();
         this.app.use("/", index.router);
         this.app.use("/sms", sms.router);
         this.app.use("/call", call.router);
+        this.app.use("/song", song.router);
 
         this.app.use((req: express.Request, res: express.Response, next: express.NextFunction) => {
             let err = new Error('Not Found');

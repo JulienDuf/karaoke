@@ -1,7 +1,11 @@
 import * as songData from "../data/song";
 
 export class SongService {
-    private song = songData.song.split(" ");
+    private readonly song: string[];
+
+    constructor(song: string) {
+        this.song = songData[song].split(" ");
+    }
 
     public validate(data: string, index: number): boolean {
         if (index > this.song.length - 1) {

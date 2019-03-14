@@ -5,7 +5,7 @@ import { NexmoService } from '../service/nexmo.service';
 
 export class Sms {
     private redisService = new RedisService();
-    private songService = new SongService();
+    private songService = new SongService("sms");
     private smsService = new NexmoService();
 
     public router = express.Router();
