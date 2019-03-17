@@ -1,32 +1,35 @@
-import * as Nexmo from "nexmo";
+import * as speech from "@google-cloud/speech";
 
 export class SpeechService {
-    private nexmo: any;
+    private speech: any;
 
     constructor() {
-        this.nexmo = new Nexmo({
-            apiKey: process.env.NEXMO_API_KEY,
-            apiSecret: process.env.NEXMO_API_SECRET,
-            applicationId: "e79e7307-22bb-4b7f-a50f-431ac385814d",
-            privateKey: "/home/julien/git/karaoke/nexmo/private.key",
-            options: {
-                debug: process.env.NEXMO_API_DEBUG
-            }
-        });
+        this.speech = new speech.SpeechClient();
     }
 
-    public sendSms(sms: { text: string, phone: string }) {
-        try {
-            this.nexmo.message.sendSms(process.env.NEXMO_FROM_NUMBER, sms.phone, sms.text, {},
-                (err, apiResponse) => {
-                    if (err) {
-                        console.log("Nexmo failed to send sms. Reason:\n" + err);
-                    } else if (apiResponse.messages[0].status !== "0") {
-                        console.log(apiResponse);
-                    }
-                });
-        } catch (err) {
-            console.log("Nexmo failed to send sms. Reason:\n" + err);
-        }
+    public async recognize(buffer: Buffer) {
+        const audioBytes = buffer.toString('base64');
+
+        // The audio file's encoding, sample rate in hertz, and BCP-47 language code
+        const audio = {
+            content: audioBytes,
+        };
+        const config = {
+            encoding: 'LINEAR16',
+            sampleRateHertz: 16000,
+            languageCode: 'en-US'
+        };
+        const request = {
+            audio: audio,
+            config: config,
+        };
+
+        // Detects speech in the audio file
+        const [response] = await this.speech.recognize(request);
+        const transcription = response.results
+            .map(result => result.alternatives[0].transcript)
+            .join('\n');
+        console.log(`Transcription: ${transcription}`);
+        return transcription;
     }
 }

@@ -44,7 +44,9 @@ export class RedisService {
                 }
             });
             stream.on('end', async () => {
-                await this.client.del(...keys);
+                if (keys && keys.length) {
+                    await this.client.del(...keys);
+                }
                 resolve();
             });
         });

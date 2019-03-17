@@ -1,4 +1,5 @@
 import * as Nexmo from "nexmo";
+import { promisify } from 'util';
 
 export class NexmoService {
     private nexmo: any;
@@ -7,7 +8,7 @@ export class NexmoService {
         this.nexmo = new Nexmo({
             apiKey: process.env.NEXMO_API_KEY,
             apiSecret: process.env.NEXMO_API_SECRET,
-            applicationId: "e79e7307-22bb-4b7f-a50f-431ac385814d",
+            applicationId: "be31e48b-47d9-403c-80a2-23a4c6d01589",
             privateKey: "/home/julien/git/karaoke/nexmo/private.key",
             options: {
                 debug: process.env.NEXMO_API_DEBUG
@@ -30,14 +31,15 @@ export class NexmoService {
         }
     }
 
-    public saveRecording(url: string, uuid: string) {
-        this.nexmo.files.save(url,
-            `${uuid}.mp3`, (err, res) => {
-            if (err) {
-                console.error(err);
-            } else {
-                console.log(res);
-            }
-        });
+    public async getRecording(url: string) {
+        return promisify(this.nexmo.files.get.bind(this.nexmo.files))(url);
+    }
+
+    public async updateCall(uuid: string, data: any) {
+        return promisify(this.nexmo.calls.update.bind(this.nexmo.calls))(uuid, data);
+    }
+
+    public async sendText(uuid: string, data: any) {
+        return promisify(this.nexmo.calls.talk.start.bind(this.nexmo.calls.talk))(uuid, data);
     }
 }
