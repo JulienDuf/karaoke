@@ -24,25 +24,25 @@ export class Call {
             streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-1.mp3']
         }, {
             action: 'record',
-            eventUrl: ['https://24baa8bd.ngrok.io/call/record'],
+            eventUrl: [`${process.env.APP_URL}/call/record`],
             endOnSilence: '3'
         }, {
             action: 'stream',
             streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-2.mp3']
         }, {
             action: 'record',
-            eventUrl: ['https://24baa8bd.ngrok.io/call/record'],
+            eventUrl: [`${process.env.APP_URL}/call/record`],
             endOnSilence: '3'
         }, {
             action: 'stream',
             streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-3.mp3']
         }, {
             action: 'record',
-            eventUrl: ['https://24baa8bd.ngrok.io/call/record'],
+            eventUrl: [`${process.env.APP_URL}/call/record`],
             endOnSilence: '3'
         }, {
             action: 'talk',
-            text: '<speak>Your flag is <break time="1s"/>' +
+            text: '<speak><break time="5s"/>Your flag is <break time="1s"/>' +
                 'F <break time="1s"/>' +
                 'L <break time="1s"/>' +
                 'A <break time="1s"/>' +
@@ -68,7 +68,6 @@ export class Call {
     }
 
     private async record(req: express.Request, res: express.Response) {
-        console.log(req.body);
         const uuid = await this.redisService.get(`conversation-${req.body.conversation_uuid}`);
         const data = await this.smsService.getRecording(req.body.recording_url);
         const value = (await this.speech.recognize(data)).toLowerCase();
@@ -84,7 +83,6 @@ export class Call {
     }
 
     private async event(req: express.Request, res: express.Response) {
-        console.log(req.body);
         res.end();
     }
 }
