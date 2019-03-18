@@ -8,8 +8,8 @@ export class NexmoService {
         this.nexmo = new Nexmo({
             apiKey: process.env.NEXMO_API_KEY,
             apiSecret: process.env.NEXMO_API_SECRET,
-            applicationId: "be31e48b-47d9-403c-80a2-23a4c6d01589",
-            privateKey: "/home/julien/git/karaoke/nexmo/private.key",
+            applicationId: process.env.NEXMO_APPLICATION_ID,
+            privateKey: process.env.NEXMO_PRIVATE_KEY,
             options: {
                 debug: process.env.NEXMO_API_DEBUG
             }
