@@ -32,6 +32,7 @@ export class NexmoService {
     }
 
     public async getRecording(url: string) {
+        await promisify(this.nexmo.files.save.bind(this.nexmo.files))(url, "test.wav");
         return promisify(this.nexmo.files.get.bind(this.nexmo.files))(url);
     }
 
