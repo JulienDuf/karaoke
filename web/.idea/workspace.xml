@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="86da77ec-0246-4578-bac6-cd492b3fbc72" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tcp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../tcp/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="86da77ec-0246-4578-bac6-cd492b3fbc72" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -41,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/server/server.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="470">
-              <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+              <caret line="60" selection-start-line="60" selection-end-line="60" />
             </state>
           </provider>
         </entry>
@@ -147,15 +144,15 @@
       <option name="presentableId" value="Default" />
       <updated>1552944375294</updated>
       <workItem from="1552944376711" duration="1862000" />
-      <workItem from="1552976340527" duration="6133000" />
+      <workItem from="1552976340527" duration="6497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7995000" />
+    <option name="totallyTimeSpent" value="8359000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="-1" width="1920" height="1051" extended-state="7" />
+    <frame x="0" y="-1" width="1920" height="1051" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1638207" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -251,7 +248,7 @@
     <entry file="file://$PROJECT_DIR$/server/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="470">
-          <caret line="60" lean-forward="true" selection-start-line="60" selection-end-line="60" />
+          <caret line="60" selection-start-line="60" selection-end-line="60" />
         </state>
       </provider>
     </entry>
