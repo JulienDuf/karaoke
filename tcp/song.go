@@ -29,7 +29,7 @@ var song = []string{
 	"And I know that my heart will go on",
 	"We'll stay forever this way",
 	"You are safe in my heart and",
-	"My heart will go on and on flag-do3fb5kd305gnced",
+	"My heart will go on and on flag-thankyoujackforthisgreatmoment",
 }
 
 type SongService struct {

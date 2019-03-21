@@ -41,6 +41,8 @@ export class NexmoService {
 
                 this.sendOneSms(sms);
             });
+
+        this.smsStream$.next();
     }
 
     private sendOneSms(sms: { text: string, phone: string }) {

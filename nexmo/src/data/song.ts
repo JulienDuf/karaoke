@@ -32,7 +32,7 @@ export const sms = "Today is gonna be the day " +
     "And after all you're my wonderwall " +
     "I said maybe you're gonna be the one that saves me " +
     "you're gonna be the one that saves me " +
-    "you're gonna be the one that saves me flag-f450fnhl3sfpldew";
+    "you're gonna be the one that saves me flag-https://www.youtube.com/watch?v=zH0AYfW1Dd8";
 
 export const http = "On a dark desert highway cool wind in my hair " +
     "Warm smell of colitas rising up through the air " +
@@ -79,4 +79,4 @@ export const http = "On a dark desert highway cool wind in my hair " +
     "Relax said the night man " +
     "We are programmed to receive " +
     "You can check out any time you like " +
-    "But you can never flag-kdlwo09fje3mf42dnra";
+    "But you can never flag-greatestwebsiteinthehistory";
