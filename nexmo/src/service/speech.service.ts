@@ -17,7 +17,8 @@ export class SpeechService {
         const config = {
             encoding: 'LINEAR16',
             sampleRateHertz: 16000,
-            languageCode: 'en-US'
+            languageCode: 'en-US',
+            model: 'phone_call'
         };
         const request = {
             audio: audio,

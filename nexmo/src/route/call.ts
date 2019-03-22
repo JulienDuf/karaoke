@@ -25,21 +25,21 @@ export class Call {
         }, {
             action: 'record',
             eventUrl: [`${process.env.APP_URL}/call/record`],
-            endOnSilence: '3'
+            timeOut: '3'
         }, {
             action: 'stream',
             streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-2.mp3']
         }, {
             action: 'record',
             eventUrl: [`${process.env.APP_URL}/call/record`],
-            endOnSilence: '3'
+            timeOut: '3'
         }, {
             action: 'stream',
             streamUrl: ['https://storage.googleapis.com/csgames-storage/songs/Tequila-3.mp3']
         }, {
             action: 'record',
             eventUrl: [`${process.env.APP_URL}/call/record`],
-            endOnSilence: '3'
+            timeOut: '3'
         }, {
             action: 'talk',
             text: '<speak><break time="5s"/>Your flag is <break time="1s"/>' +
@@ -48,18 +48,22 @@ export class Call {
                 'A <break time="1s"/>' +
                 'G <break time="1s"/>' +
                 '<say-as interpret-as="spell-out">-</say-as> <break time="1s"/>' +
-                'G <break time="1s"/>' +
-                'V <break time="1s"/>' +
-                'J <break time="1s"/>' +
-                'E <break time="1s"/>' +
-                'M <break time="1s"/>' +
+                'B <break time="1s"/>' +
+                'L <break time="1s"/>' +
                 'A <break time="1s"/>' +
-                'P <break time="1s"/>' +
-                'L <break time="1s"/>' +
+                'M <break time="1s"/>' +
+                'E <break time="1s"/>' +
+                'J <break time="1s"/>' +
+                'U <break time="1s"/>' +
+                'J <break time="1s"/>' +
+                'U <break time="1s"/>' +
                 'F <break time="1s"/>' +
-                'L <break time="1s"/>' +
+                'O <break time="1s"/>' +
+                'R <break time="1s"/>' +
+                'T <break time="1s"/>' +
                 'H <break time="1s"/>' +
-                'A <break time="1s"/></speak>',
+                'I <break time="1s"/>' +
+                'S <break time="1s"/></speak>',
             loop: '2',
             level: '1'
         }];
